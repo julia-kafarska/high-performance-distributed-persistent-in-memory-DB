@@ -1,0 +1,40 @@
+{
+  "name": "sagedb",
+  "version": "1.1.0",
+  "main": "coordinator.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "start": "./start.sh",
+    "stop": "./stop.sh",
+    "coordinator": "node coordinator.js --port 4000 --shards http://127.0.0.1:4101,http://127.0.0.1:4102,http://127.0.0.1:4103 --vnodes 100",
+    "shard1": "node shard.js --port 4101 --data data1",
+    "shard2": "node shard.js --port 4102 --data data2",
+    "shard3": "node shard.js --port 4103 --data data3",
+    "client": "node client_example.js"
+  },
+  "keywords": [
+    "database",
+    "key-value",
+    "distributed",
+    "nosql",
+    "json",
+    "consistent-hashing",
+    "sharding",
+    "replication",
+    "quorum",
+    "persistence"
+  ],
+  "author": "Julia Kafarska",
+  "license": "ISC",
+  "description": "A high-performance distributed key-value database with JSON support, consistent hashing, and fault-tolerant quorum replication",
+  "dependencies": {
+    "commander": "^14.0.0",
+    "lz4": "^0.6.5",
+    "sorted-btree": "^1.8.1"
+  },
+  "devDependencies": {
+    "jest": "^30.0.5"
+  }
+}
